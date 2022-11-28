@@ -22,8 +22,11 @@ export class NavComponent implements OnInit {
         this.loggedIn = true;
       },
       error: error => console.log(error)
-      
     })
+  }
+
+  logout(){
+    this.loggedIn = false;
   }
 
 }
