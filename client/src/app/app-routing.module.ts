@@ -12,20 +12,20 @@ import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: '',
+  {path: '', 
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],
     children: [
       {path: 'members', component: MemberListComponent},
-      {path: 'members/:id', component: MemberDetailComponent},
+      {path: 'members/:username', component: MemberDetailComponent},
       {path: 'lists', component: ListsComponent},
       {path: 'messages', component: MessagesComponent},
-    ]  
+    ]
   },
-  {path:'errors', component: TestErrorComponent},
-  {path:'not-found', component: NotFoundComponent},
-  {path:'server-error', component: ServerErrorComponent},
-  {path: '**', component: NotFoundComponent, pathMatch:'full'},
+  {path: 'errors', component: TestErrorComponent},
+  {path: 'not-found', component: NotFoundComponent},
+  {path: 'server-error', component: ServerErrorComponent},
+  {path: '**', component: NotFoundComponent, pathMatch: 'full'},
 ];
 
 @NgModule({

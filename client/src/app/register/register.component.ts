@@ -9,26 +9,26 @@ import { AccountService } from '../_services/account.service';
 })
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
-  model: any = {};
+  model: any = {}
 
-  constructor(private accountService: AccountService,
-    private toastr: ToastrService) { }
-
+  constructor(private accountService: AccountService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
 
-  register(){
+  register() {
     this.accountService.register(this.model).subscribe({
       next: () => {
         this.cancel();
       },
-      error: error => this.toastr.error(error.error)
-      
+      error: error => {
+        this.toastr.error(error.error);
+        console.log(error);
+      } 
     })
   }
 
-  cancel(){
+  cancel() {
     this.cancelRegister.emit(false);
   }
 
