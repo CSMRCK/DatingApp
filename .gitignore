@@ -2,3 +2,4 @@ API/WeatherForecast.cs
 API/bin
 API/obj
 API/Controllers/WeatherForecastController.cs
+API/appsettings.json
